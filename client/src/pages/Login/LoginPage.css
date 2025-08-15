@@ -1,0 +1,102 @@
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.login-container h1 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background: #0077ff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background: #005fcc;
+}
+
+.login-container button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.login-container p {
+  margin-top: 15px;
+}
+
+.login-container a {
+  color: #0077ff;
+  text-decoration: none;
+}
+
+/* Register page styles */
+.register-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.register-container h1, .register-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.register-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.register-container button {
+  width: 100%;
+  padding: 10px;
+  background: #28a745;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.register-container button:hover:not(:disabled) {
+  background: #1e7e34;
+}
+
+.register-container button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.register-container p {
+  margin-top: 15px;
+}
+
+.register-container a {
+  color: #0077ff;
+  text-decoration: none;
+}
