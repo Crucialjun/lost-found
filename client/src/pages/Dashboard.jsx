@@ -43,7 +43,7 @@ const Dashboard = () => {
 	if (authLoading) {
 		return (
 			<div className="min-h-screen bg-white flex items-center justify-center">
-				<div className="spinner"></div>
+				<div className="loading-spinner"></div>
 			</div>
 		);
 	}
@@ -53,7 +53,7 @@ const Dashboard = () => {
 			<div className="container mx-auto px-4 py-8">
 				{/* Header */}
 				<div className="text-center mb-12">
-					<h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-4">
+					<h1 className="text-4xl md:text-5xl font-bold text-gradient mb-4">
 						Dashboard
 					</h1>
 					<p className="text-gray-600 text-lg">Browse lost and found items from our community</p>
@@ -63,28 +63,28 @@ const Dashboard = () => {
 				<div className="flex flex-wrap justify-center gap-4 mb-12">
 					<Link 
 						to="/post-lost" 
-						className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-8 py-4 rounded-xl hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold text-lg"
+						className="btn btn-danger btn-lg"
 					>
 						📱 Post Lost Item
 					</Link>
 					<Link 
 						to="/post-found" 
-						className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold text-lg"
+						className="btn btn-success btn-lg"
 					>
 						🔍 Post Found Item
 					</Link>
 				</div>
 
 				{/* Filters */}
-				<div className="bg-white rounded-2xl p-6 mb-8 shadow-lg border border-gray-200">
+				<div className="filter-section p-6 mb-8">
 					<h3 className="text-lg font-semibold mb-4 text-gray-800">Filter & Search</h3>
-					<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-2">Status</label>
+					<div className="filter-grid">
+						<div className="form-group">
+							<label className="form-label">Status</label>
 							<select 
 								value={filter} 
 								onChange={(e) => setFilter(e.target.value)}
-								className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white"
+								className="form-select"
 							>
 								<option value="all">All Items</option>
 								<option value="lost">Lost Items</option>
@@ -92,12 +92,12 @@ const Dashboard = () => {
 							</select>
 						</div>
 
-						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-2">Category</label>
+						<div className="form-group">
+							<label className="form-label">Category</label>
 							<select 
 								value={category} 
 								onChange={(e) => setCategory(e.target.value)}
-								className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white"
+								className="form-select"
 							>
 								<option value="">All Categories</option>
 								{categories.map(cat => (
@@ -108,14 +108,14 @@ const Dashboard = () => {
 							</select>
 						</div>
 
-						<div>
-							<label className="block text-sm font-medium text-gray-700 mb-2">Search</label>
+						<div className="form-group">
+							<label className="form-label">Search</label>
 							<input
 								type="text"
 								placeholder="Search items..."
 								value={search}
 								onChange={(e) => setSearch(e.target.value)}
-								className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-all duration-200 bg-white"
+								className="form-input"
 							/>
 						</div>
 					</div>
@@ -124,7 +124,7 @@ const Dashboard = () => {
 				{/* Loading State */}
 				{loading && (
 					<div className="flex justify-center py-12">
-						<div className="spinner"></div>
+						<div className="loading-spinner"></div>
 					</div>
 				)}
 
@@ -132,20 +132,20 @@ const Dashboard = () => {
 				{!loading && (
 					<>
 						{items.length === 0 ? (
-							<div className="text-center py-12">
-								<div className="text-6xl mb-4">📦</div>
+							<div className="empty-state">
+								<div className="empty-icon">📦</div>
 								<h3 className="text-2xl font-semibold text-gray-700 mb-2">No items found</h3>
 								<p className="text-gray-500 mb-6">Be the first to post an item in this category!</p>
 								<div className="flex flex-wrap justify-center gap-4">
 									<Link 
 										to="/post-lost" 
-										className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-6 py-3 rounded-lg hover:from-red-600 hover:to-pink-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold"
+										className="btn btn-danger"
 									>
 										Post Lost Item
 									</Link>
 									<Link 
 										to="/post-found" 
-										className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-6 py-3 rounded-lg hover:from-green-600 hover:to-emerald-600 transition-all duration-300 transform hover:scale-105 shadow-lg font-semibold"
+										className="btn btn-success"
 									>
 										Post Found Item
 									</Link>
@@ -158,23 +158,23 @@ const Dashboard = () => {
 										Showing <span className="font-semibold">{items.length}</span> items
 									</p>
 								</div>
-								<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+								<div className="items-grid">
 									{items.map((item) => (
 										<div 
 											key={item._id} 
-											className="bg-white/90 backdrop-blur-md rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-white/20 overflow-hidden"
+											className="card item-card"
 										>
-											<div className="p-6">
+											<div className="card-body">
 												{/* Status and Category */}
 												<div className="flex justify-between items-center mb-4">
-													<span className={`px-3 py-1 rounded-full text-sm font-semibold ${
+													<span className={`status-badge ${
 														item.status === "lost" 
-															? "bg-gradient-to-r from-red-500 to-pink-500 text-white" 
-															: "bg-gradient-to-r from-green-500 to-emerald-500 text-white"
+															? "status-lost" 
+															: "status-found"
 													}`}>
 														{item.status === "lost" ? "🔍 LOST" : "✅ FOUND"}
 													</span>
-													<span className="px-2 py-1 bg-gray-100 rounded-lg text-xs font-medium text-gray-600">
+													<span className="category-badge">
 														{item.category}
 													</span>
 												</div>
@@ -193,17 +193,17 @@ const Dashboard = () => {
 												</p>
 												
 												{/* Details */}
-												<div className="space-y-2 mb-6">
-													<div className="flex items-center text-sm text-gray-500">
-														<span className="mr-2">📍</span>
+												<div className="item-details">
+													<div className="item-meta">
+														<span className="item-meta-icon">📍</span>
 														<span className="truncate">{item.location.address}</span>
 													</div>
-													<div className="flex items-center text-sm text-gray-500">
-														<span className="mr-2">👤</span>
+													<div className="item-meta">
+														<span className="item-meta-icon">👤</span>
 														<span>{item.user.name}</span>
 													</div>
-													<div className="flex items-center text-sm text-gray-500">
-														<span className="mr-2">📅</span>
+													<div className="item-meta">
+														<span className="item-meta-icon">📅</span>
 														<span>{new Date(item.createdAt).toLocaleDateString()}</span>
 													</div>
 												</div>
@@ -211,7 +211,7 @@ const Dashboard = () => {
 												{/* View Button */}
 												<Link 
 													to={`/item/${item._id}`}
-													className="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 px-4 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 font-semibold text-center block"
+													className="btn btn-primary w-full"
 												>
 													View Details
 												</Link>

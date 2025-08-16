@@ -16,13 +16,13 @@ const Navbar = () => {
 	const closeMenu = () => setIsMenuOpen(false);
 
 	return (
-		<nav className="bg-white border-b border-gray-300 sticky top-0 z-50 shadow-md">
+		<nav className="navbar">
 			<div className="container mx-auto px-4">
 				<div className="flex justify-between items-center h-16">
 					{/* Logo */}
 					<Link 
 						to="/" 
-						className="text-2xl font-bold text-gray-800 hover:text-purple-600"
+						className="navbar-brand"
 						onClick={closeMenu}
 					>
 						Lost & Found
@@ -32,7 +32,7 @@ const Navbar = () => {
 					<div className="hidden md:flex items-center space-x-8">
 						<Link 
 							to="/" 
-							className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium"
+							className="nav-link"
 						>
 							Home
 						</Link>
@@ -41,25 +41,25 @@ const Navbar = () => {
 							<>
 								<Link 
 									to="/dashboard" 
-									className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium"
+									className="nav-link"
 								>
 									Dashboard
 								</Link>
 								<Link 
 									to="/post-lost" 
-									className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium"
+									className="nav-link"
 								>
 									Post Lost
 								</Link>
 								<Link 
 									to="/post-found" 
-									className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium"
+									className="nav-link"
 								>
 									Post Found
 								</Link>
 								<button 
 									onClick={handleLogout} 
-									className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-red-600 hover:to-pink-600 transition-all duration-200 transform hover:scale-105 font-medium"
+									className="btn btn-danger"
 								>
 									Logout
 								</button>
@@ -68,13 +68,13 @@ const Navbar = () => {
 							<>
 								<Link 
 									to="/login" 
-									className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium"
+									className="nav-link"
 								>
 									Login
 								</Link>
 								<Link 
 									to="/register" 
-									className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 transform hover:scale-105 font-medium"
+									className="btn btn-primary"
 								>
 									Register
 								</Link>
@@ -108,7 +108,7 @@ const Navbar = () => {
 						<div className="flex flex-col space-y-3">
 							<Link 
 								to="/" 
-								className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium py-2"
+								className="nav-link py-2"
 								onClick={closeMenu}
 							>
 								Home
@@ -118,28 +118,28 @@ const Navbar = () => {
 								<>
 									<Link 
 										to="/dashboard" 
-										className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium py-2"
+										className="nav-link py-2"
 										onClick={closeMenu}
 									>
 										Dashboard
 									</Link>
 									<Link 
 										to="/post-lost" 
-										className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium py-2"
+										className="nav-link py-2"
 										onClick={closeMenu}
 									>
 										Post Lost
 									</Link>
 									<Link 
 										to="/post-found" 
-										className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium py-2"
+										className="nav-link py-2"
 										onClick={closeMenu}
 									>
 										Post Found
 									</Link>
 									<button 
 										onClick={handleLogout} 
-										className="bg-gradient-to-r from-red-500 to-pink-500 text-white px-4 py-2 rounded-lg hover:from-red-600 hover:to-pink-600 transition-all duration-200 font-medium text-left"
+										className="btn btn-danger text-left"
 									>
 										Logout
 									</button>
@@ -148,14 +148,14 @@ const Navbar = () => {
 								<>
 									<Link 
 										to="/login" 
-										className="text-gray-800 hover:text-purple-600 transition-colors duration-200 font-medium py-2"
+										className="nav-link py-2"
 										onClick={closeMenu}
 									>
 										Login
 									</Link>
 									<Link 
 										to="/register" 
-										className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-4 py-2 rounded-lg hover:from-purple-700 hover:to-blue-700 transition-all duration-200 font-medium text-center"
+										className="btn btn-primary text-center"
 										onClick={closeMenu}
 									>
 										Register
